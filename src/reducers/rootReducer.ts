@@ -4,11 +4,13 @@ import { combineReducers } from 'redux'
 // Reducers
 import cartSummaryReducer from './summaryCart'
 import cardsReducer from './cards'
+import userReducer from './users'
 
 
 const rootReducer = combineReducers({	
 	cart: cartSummaryReducer,	
-	cards: cardsReducer
+	cards: cardsReducer,
+  user: userReducer
 })
 
 

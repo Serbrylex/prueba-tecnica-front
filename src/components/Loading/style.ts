@@ -12,7 +12,7 @@ export const Container = styled.div`
 	right: 0;
 	bottom: 0;
 	z-index: 2;	
-	background-color: ${props => props.theme === 'dark' ? '#1F1F1F' : rgba(81, 77, 76, 0.2)};
+	background-color: rgba(81, 77, 76, 0.2);
 `
 
 export const ImageLoading = styled.img`

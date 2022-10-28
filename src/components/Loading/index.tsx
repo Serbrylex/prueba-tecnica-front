@@ -10,7 +10,7 @@ const Loading = () => {
 
 	return(
 		<Container theme='black'>
-			<ImageLoading src='/public/circle.svg' alt='loading' />
+			<ImageLoading src='/circle.svg' alt='loading' />
 		</Container>
 	)
 }

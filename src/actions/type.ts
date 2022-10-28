@@ -9,6 +9,7 @@ export const DELETE_CARD: string = 'DELETE_CARD'
 export const ADD_TO_CART: string = 'ADD_TO_CART'
 export const DELETE_FROM_CART: string = 'DELETE_FROM_CART'
 export const DELETE_ALL_CART: string = 'DELETE_ALL_CART'
+export const DELETE_ALL_PRODUCT_FROM_CART: string = 'DELETE_ALL_PRODUCT_FROM_CART'
 
 // User
 

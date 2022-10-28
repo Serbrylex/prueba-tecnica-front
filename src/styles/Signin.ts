@@ -1,7 +1,5 @@
 import styled from 'styled-components'
 
-import { Link as Linked } from 'react-router-dom'
-
 export const LoginContainer = styled.div`
 	width: 100%;
 	height: 100%;	
@@ -130,9 +128,10 @@ export const Signin = styled.div`
 	justify-content: center;
 `
 
-export const Link = styled(Linked)`
+export const Link = styled.em`
 	color: #0095f6;
-	text-decoration: none;	
+	text-decoration: none;
+    width: fit-content;
 `
 
 export const Apps = styled.div`

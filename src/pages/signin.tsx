@@ -7,13 +7,13 @@ import {
 	LoginContainer, MainData, Title, Form, Input, Button, Separator, Line, Element,
 	LinkFacebook, Signin, Link, Description, ImagesContainer, ImageApp, 
 	LinkImage, ErrorP, PHeader, ImageLeft, SigninForm
-} from '../styles/Signup' 
+} from '../styles/Signin' 
  
 import { AiFillFacebook } from 'react-icons/ai'
 
 import { useRouter } from 'next/router'
-import {useInputValue} from '../hooks/useInputValue'
-import Link from 'next/link'
+import {useInputValue} from '../hooks/useInputValue';
+import NLink from 'next/link';
 
 // Components
 import Loading from '../components/Loading'
@@ -34,7 +34,7 @@ const SignIn = () => {
 	const first_name = useInputValue('First name')
 	const last_name = useInputValue('Last name')
 
-	const [errorResponse, setErrorRespose] = useState({
+	const [errorResponse, setErrorRespose] = useState<{error: boolean, listErrors: any}>({
 		error: false,
 		listErrors: ''
 	})
@@ -64,7 +64,7 @@ const SignIn = () => {
 		} else {			
 			setErrorRespose({
 				error: true,
-				listErrors: response
+				listErrors: 'Verify that the password is right'
 			})
 			setLoading(false)
 		}	
@@ -74,7 +74,7 @@ const SignIn = () => {
 	
 	return(
 		<LoginContainer>			
-			<ImageLeft src='/virtual-reality-cuate.svg' alt='image' />
+			<ImageLeft src='/Server-amico.svg' alt='image' />
 			<SigninForm>
 				<MainData>
 					<Title>The Best Place</Title>	
@@ -83,34 +83,20 @@ const SignIn = () => {
 
 					<Form onSubmit={handleSubmit}>
 
-						{errorResponse.listErrors?.email &&
-							<ErrorP>{errorResponse.listErrors.email}</ErrorP>
+						{errorResponse.listErrors.length > 0 &&
+							<ErrorP>{errorResponse.listErrors}</ErrorP>
 						}
-						<Input type="email" {...email}  />
 
-						{errorResponse.listErrors?.username &&
-							<ErrorP>{errorResponse.listErrors.username}</ErrorP>
-						}
+						<Input type="email" {...email}  />
+						
 						<Input type="text" {...username} />
 
-						{errorResponse.listErrors?.password &&
-							<ErrorP>{errorResponse.listErrors.password}</ErrorP>
-						}
 						<Input type="password" {...password} />
 
-						{errorResponse.listErrors?.password_confirmation &&
-							<ErrorP>{errorResponse.listErrors.password_confirmation}</ErrorP>
-						}
 						<Input type="password" {...password_confirmation} />
 
-						{errorResponse.listErrors?.first_name &&
-							<ErrorP>{errorResponse.listErrors.first_name}</ErrorP>
-						}
 						<Input type="text" {...first_name} />
 
-						{errorResponse.listErrors?.last_name &&
-							<ErrorP>{errorResponse.listErrors.last_name}</ErrorP>
-						}
 						<Input type="text" {...last_name} />
 
 						<Button type="submit" value="Registrarte" />
@@ -126,7 +112,7 @@ const SignIn = () => {
 				</MainData>
 
 				<Signin>
-					<p>Do you have an account? <Link to='/login'>Start Session</Link></p>
+					<p>Do you have an account? <NLink href="/login"><Link>Start Session</Link></NLink></p>
 				</Signin>				
 			</SigninForm>
 		</LoginContainer>

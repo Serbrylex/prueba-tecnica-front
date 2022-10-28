@@ -4,23 +4,33 @@ import { AiOutlineShoppingCart, AiOutlineUser } from 'react-icons/ai'
 
 import { 
   HomeContainer, NavBar, Title, Directions, Main, Description, 
-  DesTitle, ShopNow, ProductsGrid, Footer, FooterLinks, Copy, Image,
+  DesTitle, ShopNow, ProductsGrid, Footer, Copy, Image,
   Number
 } from '../styles/Home'
 
 import Product from '../components/Product'
 import SummaryCart from '../components/SummaryCart'
+import UserInfo from '../components/UserInfo'
+import Loading from '../components/Loading'
+import Payment from '../components/Payment'
+
+import { useAppSelector } from '../hooks/useReduxH'
 
 export default function Home() {
 
   const [products, setProducts] = useState<TProd[] | undefined>(undefined)
+  const [payment, setPayment] = useState(false)
+  const [showUser, setShowUser] = useState(false) 
   const [loading, setLoading] = useState(true)
   const [cart, setCart] = useState(false)
+
+  const sumProducts = useAppSelector(store => store.cart.sumProducts)
+
   useEffect(()=> {
     const fetchData = async () => {
       const response = await fetch('http://127.0.0.1:8000/products/', {
         method: 'GET'
-      });
+      });      
       return response.json();
     }
 
@@ -33,7 +43,7 @@ export default function Home() {
 
   if (loading) {
     return (
-      <div>Loading</div>
+      <Loading />
     )
   }
 
@@ -44,12 +54,16 @@ export default function Home() {
           The Best Place
         </Title>
         <Directions>
-          <span><AiOutlineUser /></span>
-          <span onClick={()=>setCart(!cart)}><AiOutlineShoppingCart /><Number>0</Number></span>
+          <span onMouseOver={()=>setShowUser(true)} onMouseOut={()=>setShowUser(false)}>
+            <AiOutlineUser />
+            {showUser && <UserInfo />}          
+          </span>
+          <span onClick={()=>setCart(!cart)}><AiOutlineShoppingCart /><Number>{sumProducts}</Number></span>
         </Directions>
       </NavBar>
 
-      {cart && <SummaryCart />}
+      {cart && <SummaryCart setHide={setCart} setPayment={setPayment}/>}
+      {payment && <Payment />}
 
       <Main>
         <Description>
@@ -69,8 +83,7 @@ export default function Home() {
         ))}
       </ProductsGrid>    
       <Footer>
-        <DesTitle>The Best Place</DesTitle>
-        <FooterLinks></FooterLinks>
+        <DesTitle>The Best Place</DesTitle>        
         <Copy>Copyright 2021 | The Best Place</Copy>
       </Footer>
     </HomeContainer>

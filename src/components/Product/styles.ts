@@ -32,12 +32,13 @@ export const Amount = styled.div`
 
 export const Button = styled.button`
     background-color: #2779a7;
-    width: 30px;
+    width: 100%;
     height: 30px;
     border-radius: 10px;
-    font-size: 20px;
+    font-size: 17px;
     color: white;
     border: none;
+    cursor: pointer;
 `
 
 export const Input = styled.input`

@@ -17,6 +17,12 @@ export const NavBar = styled.nav`
     position: sticky;
     top: 0;
     background-color: #f8f8f8;
+
+    @media (max-width: 600px) { 
+        width: 100%;
+        padding: 10px;
+    }
+    
 `
 
 export const Number = styled.p`
@@ -45,7 +51,7 @@ export const Directions = styled.div`
     & > span {
        margin: 0 10px;
        cursor: pointer;
-       position: relative; 
+       position: relative;        
     }    
 `
 
@@ -54,6 +60,11 @@ export const Main = styled.div`
     margin: 50px auto 50px auto;
     height: 80vh;
     display: flex;    
+
+    @media (max-width: 600px) {
+        flex-direction: column;        
+        height: 70vh;
+    }
 `
 
 export const Description = styled.div`
@@ -73,6 +84,10 @@ export const Description = styled.div`
 export const Image = styled.img`
     width: 100%;
     height: 100%;
+
+    @media (max-width: 600px) { 
+        display: none;
+    }
 `
 
 export const ShopNow = styled.button`
@@ -86,6 +101,7 @@ export const ShopNow = styled.button`
     color: white;
     background-color: #2779a7;
     border: none;
+    cursor: pointer;
 `
 
 export const ProductsGrid = styled.div`
@@ -95,24 +111,26 @@ export const ProductsGrid = styled.div`
     margin: 0 auto;
     height: auto;
     grid-gap: 20px;
+
+    @media (max-width: 600px) { 
+        grid-template-columns: repeat(2, 1fr);
+    }
 `
 
 export const Footer = styled.div`
     display: flex;
-    flex-direction: row;
-    justify-content: center;
+    flex-direction: column;
+    justify-content: space-evenly;
     align-items: center;
     background-color: #231e1a;
+    height: 20vh;
+    color: white;
 `
 
 export const DesTitle = styled.h1`
-
-`
-
-export const FooterLinks = styled.div`
-    display: flex;
-`
+    margin: 0;
+`   
 
 export const Copy = styled.p`
-
+    margin: 0;
 `

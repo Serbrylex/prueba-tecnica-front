@@ -1,10 +1,22 @@
 type TProd = {
+  pk: number,
   item_name: string, 
   short_description: string, 
-  quantity: number, 
+  stock: number, 
   price_without_tax: number,
   shipping_fee: number,
   image: string
+}
+
+type TProdCart = {
+  pk: number,
+  item_name: string, 
+  short_description: string, 
+  stock: number, 
+  price_without_tax: number,
+  shipping_fee: number,
+  image: string,
+  amount: number
 }
 
 declare module "*.json" {

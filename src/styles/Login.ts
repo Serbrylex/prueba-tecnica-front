@@ -1,7 +1,5 @@
 import styled from 'styled-components'
 
-import { Link as Linked } from 'react-router-dom'
-
 export const LoginContainer = styled.div`
 	width: 100%; 
 	height: 100%;	
@@ -53,7 +51,7 @@ export const Title = styled.h1`
 
 export const Form = styled.form`
 	width: 100%;	
-	height: 160px;
+	height: 180px;
 	display: flex;
 	flex-direction: column;
 `
@@ -97,27 +95,6 @@ export const Element = styled.p`
 	text-align: center;
 `
 
-
-export const LinkFacebook = styled.a`
-	color: #385185;
-	text-decoration: none;
-	width: 100%;
-	height: 35px;
-	margin: 10px 0 10px 0;
-	display: block;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-`
-
-export const Forgot = styled(Linked)`
-	color: #00376b;
-	text-decoration: none;
-	width: 100%;
-	height: 35px;	
-	display: block;
-`
-
 export const Signin = styled.div`
 	width: 350px;
 	height: 50px;
@@ -129,9 +106,10 @@ export const Signin = styled.div`
 	justify-content: center;
 `
 
-export const Link = styled(Linked)`
+export const Link = styled.em`
 	color: #0095f6;
 	text-decoration: none;	
+    width: fit-content;
 `
 
 export const Apps = styled.div`
@@ -156,14 +134,7 @@ export const ImagesContainer = styled.div`
 	justify-content: space-between;
 `
 
-export const LinkImage = styled.a`
-	height: 40px;
-`
-
-export const ImageApp = styled.img`
-	height: 40px;
-`
-
 export const ErrorP = styled.p`
 	color: #ed4956;
+    margin: 5px 0;
 `

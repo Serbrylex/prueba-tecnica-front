@@ -1,6 +1,6 @@
 import {
 	ADD_CARD, DELETE_CARD, ADD_TO_CART, DELETE_FROM_CART, DELETE_ALL_CART,
-	SET_LOGIN, CLOSE_SESSION, SET_USER
+	SET_LOGIN, CLOSE_SESSION, DELETE_ALL_PRODUCT_FROM_CART
 } from './type'
 
 // CARD
@@ -26,8 +26,15 @@ export const setDeleteFromCart = (payload: any) => ({
 	type: DELETE_FROM_CART,
 	payload	
 })
-export const setDeleteAllCart = () => ({
-	type: DELETE_ALL_CART
+
+export const setDeleteAllProductFromCart = (payload: any) => ({
+	type: DELETE_ALL_PRODUCT_FROM_CART,
+	payload	
+})
+
+export const setDeleteAllCart = (payload: any) => ({
+	type: DELETE_ALL_CART,
+	payload
 })
 
 

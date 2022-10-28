@@ -91,7 +91,7 @@ const Login = () => {
 				</MainData>
 
 				<Signin>
-					<p>You do not have an account <NLink href='/signin'><Link>Sign In</Link></NLink></p>
+					<p>You do not have an account <NLink href='/signup'><Link>Sign Up</Link></NLink></p>
 				</Signin>	
 			</LoginForm>
 		</LoginContainer>

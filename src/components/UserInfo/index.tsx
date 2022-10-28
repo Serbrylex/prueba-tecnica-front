@@ -15,7 +15,7 @@ const UserInfo = () => {
         <Container>
             {!user.isAuth ? 
                 <><Button><NLink href="/login"><span><AiOutlineUser/></span> Login</NLink></Button>
-                <Button><NLink href="/signup"><span><AiOutlineLogin /></span>  Signup</NLink></Button> </>:
+                <Button><NLink href="/signup"><span><AiOutlineLogin /></span>  Sign Up</NLink></Button> </>:
                 <>
                 <p>User: {user.user.username}</p>
                 </>

@@ -28,10 +28,14 @@ export default function Home() {
 
   useEffect(()=> {
     const fetchData = async () => {
-      const response = await fetch('http://127.0.0.1:8000/products/', {
-        method: 'GET'
-      });      
-      return response.json();
+      try {
+        const response = await fetch('http://127.0.0.1:8000/products/', {
+          method: 'GET'
+        });      
+        return response.json();
+      } catch(e) {
+        return []
+      }
     }
 
     fetchData().then((data) => {
